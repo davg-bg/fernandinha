@@ -2,151 +2,111 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Surpresa para Fernanda</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💖 Surpresa Especial para Fernanda 💖</title>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
-  <style>
-    body {
-      background: linear-gradient(135deg, #ffe6f0, #fffaf0);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      height: 100vh;
-      margin: 0;
-      overflow: hidden;
-      text-align: center;
-    }
-
-    h1 {
-      color: #d81b60;
-      margin-bottom: 15px;
-    }
-
-    .gifts {
-      display: flex;
-      gap: 40px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .gift-box {
-      width: 100px;
-      height: 100px;
-      background: #ff4081;
-      position: relative;
-      border-radius: 10px;
-      cursor: pointer;
-      animation: bounce 1.5s infinite;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
-    }
-
-    .gift-box:hover {
-      transform: scale(1.1);
-    }
-
-    .gift-box::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 30px;
-      height: 100px;
-      background: #fff;
-    }
-
-    .gift-box::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: 100px;
-      height: 30px;
-      background: #fff;
-      transform: translateY(-50%);
-    }
-
-    .ribbon {
-      position: absolute;
-      top: -25px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 1.5rem;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    .message {
-      display: none;
-      max-width: 600px;
-      font-size: 1.2rem;
-      color: #333;
-      background: #ffffffdd;
-      padding: 20px;
-      margin-top: 20px;
-      border-radius: 15px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-      animation: fadeIn 1.5s forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>🎁 Surpresa para Fernanda 🎁</h1>
-  <p>Escolha um presente para abrir!</p>
+  <div class="container">
+    <header>
+      <h1>🌟 Surpresa Especial para Fernanda 🌟</h1>
+      <p class="subtitle">Escolha qualquer presente para descobrir uma mensagem especial feita com carinho para você! 💕</p>
+    </header>
 
-  <div class="gifts">
-    <div class="gift-box" data-message="Fernanda, você é mais forte do que imagina. Continue acreditando em si mesma! 💪🌟">
-      <div class="ribbon">🎀</div>
+    <div class="gifts-container">
+      <!-- Linha 1 -->
+      <div class="gift-box" data-message="Fernanda, você é mais forte do que imagina. Continue acreditando em si mesma! Cada desafio é uma oportunidade de crescer. 💪🌟" data-type="strength">
+        <div class="gift-icon">🎁</div>
+        <div class="ribbon">🎀</div>
+      </div>
+      
+      <div class="gift-box" data-message="Nunca se esqueça: sua luz inspira as pessoas ao seu redor. Você tem um brilho único que ilumina qualquer ambiente! ✨💖" data-type="inspiration">
+        <div class="gift-icon">🌸</div>
+        <div class="ribbon">🎀</div>
+      </div>
+      
+      <div class="gift-box" data-message="Cada passo que você dá te aproxima dos seus sonhos. Continue firme no seu caminho, você está indo muito bem! 🚀🔥" data-type="dreams">
+        <div class="gift-icon">⭐</div>
+        <div class="ribbon">🎀</div>
+      </div>
+      
+      <div class="gift-box" data-message="O melhor ainda está por vir, e você merece cada conquista que está chegando. Sua jornada é única e especial! 🌈🏆" data-type="future">
+        <div class="gift-icon">💎</div>
+        <div class="ribbon">🎀</div>
+      </div>
+      
+      <div class="gift-box" data-message="Sua gentileza e carinho fazem do mundo um lugar melhor. Obrigado por ser essa pessoa incrível! 🌺💕" data-type="kindness">
+        <div class="gift-icon">🌹</div>
+        <div class="ribbon">🎀</div>
+      </div>
+
+      <!-- Linha 2 -->
+      <div class="gift-box" data-message="Você tem um coração gigante e uma alma linda. Nunca deixe ninguém te fazer acreditar no contrário! 💝🦋" data-type="heart">
+        <div class="gift-icon">💖</div>
+        <div class="ribbon">🎀</div>
+      </div>
+      
+      <div class="gift-box" data-message="Sua risada é contagiante e sua alegria é um presente para todos nós. Continue sorrindo sempre! 😊🌻" data-type="joy">
+        <div class="gift-icon">🌻</div>
+        <div class="ribbon">🎀</div>
+      </div>
+      
+      <div class="gift-box" data-message="Você é capaz de superar qualquer obstáculo. Sua determinação é admirável e inspiradora! 🏔️💪" data-type="determination">
+        <div class="gift-icon">🏆</div>
+        <div class="ribbon">🎀</div>
+      </div>
+      
+      <div class="gift-box" data-message="Lembre-se sempre: você é amada, você é especial e você faz a diferença na vida das pessoas! 💕👑" data-type="love">
+        <div class="gift-icon">👑</div>
+        <div class="ribbon">🎀</div>
+      </div>
+      
+      <div class="gift-box" data-message="Sua criatividade e inteligência são dons únicos. Use-os para criar coisas maravilhosas! 🎨🧠" data-type="creativity">
+        <div class="gift-icon">🎨</div>
+        <div class="ribbon">🎀</div>
+      </div>
+
+      <!-- Linha 3 -->
+      <div class="gift-box" data-message="Cada dia é uma nova oportunidade para ser feliz. Aproveite cada momento e seja grata por estar aqui! 🌅🙏" data-type="gratitude">
+        <div class="gift-icon">🌅</div>
+        <div class="ribbon">🎀</div>
+      </div>
+      
+      <div class="gift-box" data-message="Você tem o poder de transformar seus sonhos em realidade. Acredite em si mesma e vá em frente! ✨🚀" data-type="power">
+        <div class="gift-icon">🔮</div>
+        <div class="ribbon">🎀</div>
+      </div>
+      
+      <div class="gift-box" data-message="Sua presença traz paz e harmonia para quem está ao seu redor. Você é um presente na vida das pessoas! 🕊️💫" data-type="peace">
+        <div class="gift-icon">🕊️</div>
+        <div class="ribbon">🎀</div>
+      </div>
+      
+      <div class="gift-box" data-message="Não importa quantas vezes você caia, o importante é que você sempre se levanta mais forte! 🌱💚" data-type="resilience">
+        <div class="gift-icon">🌱</div>
+        <div class="ribbon">🎀</div>
+      </div>
+      
+      <div class="gift-box" data-message="Você é única, especial e perfeita do seu jeito. Nunca tente ser outra pessoa, seja sempre você! 🦄💜" data-type="uniqueness">
+        <div class="gift-icon">🦄</div>
+        <div class="ribbon">🎀</div>
+      </div>
     </div>
-    <div class="gift-box" data-message="Nunca se esqueça: sua luz inspira as pessoas ao seu redor. Brilhe sempre! ✨💖">
-      <div class="ribbon">🎀</div>
+
+    <div class="message-container" id="messageContainer">
+      <div class="message-box">
+        <h2 id="messageTitle">💌 Mensagem Especial 💌</h2>
+        <p id="messageText"></p>
+        <button id="closeMessage" class="close-btn">Fechar ✨</button>
+      </div>
     </div>
-    <div class="gift-box" data-message="Cada passo que você dá te aproxima dos seus sonhos. Continue firme! 🚀🔥">
-      <div class="ribbon">🎀</div>
-    </div>
-    <div class="gift-box" data-message="O melhor ainda está por vir, e você merece cada conquista que está chegando. 🌈🏆">
-      <div class="ribbon">🎀</div>
+
+    <div class="footer">
+      <p>Feito com muito carinho para uma pessoa muito especial 💕</p>
     </div>
   </div>
 
-  <div class="message" id="message">
-    <h2>🌟 Mensagem Especial 🌟</h2>
-    <p id="msg-text"></p>
-  </div>
-
-  <script>
-    const gifts = document.querySelectorAll(".gift-box");
-    const messageBox = document.getElementById("message");
-    const msgText = document.getElementById("msg-text");
-
-    gifts.forEach(gift => {
-      gift.addEventListener("click", () => {
-        const text = gift.getAttribute("data-message");
-        msgText.innerHTML = text;
-        messageBox.style.display = "block";
-
-        // soltar confetes várias vezes
-        for (let i = 0; i < 3; i++) {
-          setTimeout(() => {
-            confetti({
-              particleCount: 200,
-              spread: 120,
-              origin: { y: 0.6 }
-            });
-          }, i * 800);
-        }
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
