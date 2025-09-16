@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Motivação para Fernanda</title>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <style>
+    body {
+      background: #fffaf0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+      padding: 20px;
+    }
+    h1 {
+      color: #ff4081;
+    }
+    p {
+      font-size: 1.2rem;
+      color: #333;
+      max-width: 600px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌟 Fernanda Alves 🌟</h1>
+  <p>
+    Fernanda, nunca se esqueça da força que você carrega dentro de si.  
+    Cada desafio que aparece na sua vida não é um obstáculo para te parar, mas sim uma oportunidade para mostrar ao mundo – e a você mesma – do que é capaz.  
+    <br><br>
+    Você tem talento, garra e coragem suficientes para conquistar tudo o que deseja.  
+    Acredite em si, mantenha a cabeça erguida e o coração cheio de fé.  
+    O esforço que você coloca hoje será a vitória que você colherá amanhã.  
+    <br><br>
+    💪✨ Continue firme, Fernanda. O melhor ainda está por vir!
+  </p>
+
+  <script>
+    // solta confetes ao abrir a página
+    function jogarConfete() {
+      confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.6 }
+      });
+    }
+    window.onload = () => {
+      jogarConfete();
+      setInterval(jogarConfete, 3000); // repete a cada 3s
+    }
+  </script>
+</body>
+</html>
