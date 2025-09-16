@@ -2,57 +2,130 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Motivação para Fernanda</title>
+  <title>Presente para Fernanda</title>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
   <style>
     body {
-      background: #fffaf0;
-      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffe6f0, #fffaf0);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
-      text-align: center;
+      flex-direction: column;
       height: 100vh;
       margin: 0;
-      flex-direction: column;
-      padding: 20px;
+      overflow: hidden;
+      text-align: center;
     }
-    h1 {
-      color: #ff4081;
+
+    .gift-box {
+      width: 120px;
+      height: 120px;
+      background: #ff4081;
+      position: relative;
+      border-radius: 10px;
+      cursor: pointer;
+      animation: bounce 1.5s infinite;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
-    p {
+
+    .gift-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 120px;
+      background: #fff;
+    }
+
+    .gift-box::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 120px;
+      height: 40px;
+      background: #fff;
+      transform: translateY(-50%);
+    }
+
+    .ribbon {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .message {
+      display: none;
+      max-width: 600px;
       font-size: 1.2rem;
       color: #333;
-      max-width: 600px;
+      background: #ffffffdd;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      animation: fadeIn 1.5s forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    h1 {
+      color: #d81b60;
+      margin-bottom: 15px;
     }
   </style>
 </head>
 <body>
-  <h1>🌟 Fernanda Alves 🌟</h1>
-  <p>
-    Fernanda, nunca se esqueça da força que você carrega dentro de si.  
-    Cada desafio que aparece na sua vida não é um obstáculo para te parar, mas sim uma oportunidade para mostrar ao mundo – e a você mesma – do que é capaz.  
-    <br><br>
-    Você tem talento, garra e coragem suficientes para conquistar tudo o que deseja.  
-    Acredite em si, mantenha a cabeça erguida e o coração cheio de fé.  
-    O esforço que você coloca hoje será a vitória que você colherá amanhã.  
-    <br><br>
-    💪✨ Continue firme, Fernanda. O melhor ainda está por vir!
-  </p>
+  <div class="gift-box" id="gift">
+    <div class="ribbon">🎀</div>
+  </div>
+
+  <div class="message" id="message">
+    <h1>🌟 Fernanda Alves 🌟</h1>
+    <p>
+      Fernanda, nunca se esqueça da força que você carrega dentro de si.  
+      Cada desafio que aparece na sua vida não é um obstáculo para te parar, mas sim uma oportunidade para mostrar ao mundo – e a você mesma – do que é capaz.  
+      <br><br>
+      Você tem talento, garra e coragem suficientes para conquistar tudo o que deseja.  
+      Acredite em si, mantenha a cabeça erguida e o coração cheio de fé.  
+      O esforço que você coloca hoje será a vitória que você colherá amanhã.  
+      <br><br>
+      💪✨ Continue firme, Fernanda. O melhor ainda está por vir!
+    </p>
+  </div>
 
   <script>
-    // solta confetes ao abrir a página
-    function jogarConfete() {
-      confetti({
-        particleCount: 200,
-        spread: 100,
-        origin: { y: 0.6 }
-      });
-    }
-    window.onload = () => {
-      jogarConfete();
-      setInterval(jogarConfete, 3000); // repete a cada 3s
-    }
+    const gift = document.getElementById("gift");
+    const message = document.getElementById("message");
+
+    gift.addEventListener("click", () => {
+      gift.style.display = "none";
+      message.style.display = "block";
+
+      // soltar confetes várias vezes
+      for (let i = 0; i < 3; i++) {
+        setTimeout(() => {
+          confetti({
+            particleCount: 200,
+            spread: 120,
+            origin: { y: 0.6 }
+          });
+        }, i * 1000);
+      }
+    });
   </script>
 </body>
 </html>
