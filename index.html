@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Presente para Fernanda</title>
+  <title>Surpresa para Fernanda</title>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
   <style>
     body {
@@ -18,15 +18,32 @@
       text-align: center;
     }
 
+    h1 {
+      color: #d81b60;
+      margin-bottom: 15px;
+    }
+
+    .gifts {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
     .gift-box {
-      width: 120px;
-      height: 120px;
+      width: 100px;
+      height: 100px;
       background: #ff4081;
       position: relative;
       border-radius: 10px;
       cursor: pointer;
       animation: bounce 1.5s infinite;
       box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .gift-box:hover {
+      transform: scale(1.1);
     }
 
     .gift-box::before {
@@ -35,8 +52,8 @@
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 40px;
-      height: 120px;
+      width: 30px;
+      height: 100px;
       background: #fff;
     }
 
@@ -45,18 +62,18 @@
       position: absolute;
       top: 50%;
       left: 0;
-      width: 120px;
-      height: 40px;
+      width: 100px;
+      height: 30px;
       background: #fff;
       transform: translateY(-50%);
     }
 
     .ribbon {
       position: absolute;
-      top: -30px;
+      top: -25px;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
 
     @keyframes bounce {
@@ -81,50 +98,54 @@
       from { opacity: 0; transform: scale(0.9); }
       to { opacity: 1; transform: scale(1); }
     }
-
-    h1 {
-      color: #d81b60;
-      margin-bottom: 15px;
-    }
   </style>
 </head>
 <body>
-  <div class="gift-box" id="gift">
-    <div class="ribbon">🎀</div>
+  <h1>🎁 Surpresa para Fernanda 🎁</h1>
+  <p>Escolha um presente para abrir!</p>
+
+  <div class="gifts">
+    <div class="gift-box" data-message="Fernanda, você é mais forte do que imagina. Continue acreditando em si mesma! 💪🌟">
+      <div class="ribbon">🎀</div>
+    </div>
+    <div class="gift-box" data-message="Nunca se esqueça: sua luz inspira as pessoas ao seu redor. Brilhe sempre! ✨💖">
+      <div class="ribbon">🎀</div>
+    </div>
+    <div class="gift-box" data-message="Cada passo que você dá te aproxima dos seus sonhos. Continue firme! 🚀🔥">
+      <div class="ribbon">🎀</div>
+    </div>
+    <div class="gift-box" data-message="O melhor ainda está por vir, e você merece cada conquista que está chegando. 🌈🏆">
+      <div class="ribbon">🎀</div>
+    </div>
   </div>
 
   <div class="message" id="message">
-    <h1>🌟 Fernanda Alves 🌟</h1>
-    <p>
-      Fernanda, nunca se esqueça da força que você carrega dentro de si.  
-      Cada desafio que aparece na sua vida não é um obstáculo para te parar, mas sim uma oportunidade para mostrar ao mundo – e a você mesma – do que é capaz.  
-      <br><br>
-      Você tem talento, garra e coragem suficientes para conquistar tudo o que deseja.  
-      Acredite em si, mantenha a cabeça erguida e o coração cheio de fé.  
-      O esforço que você coloca hoje será a vitória que você colherá amanhã.  
-      <br><br>
-      💪✨ Continue firme, Fernanda. O melhor ainda está por vir!
-    </p>
+    <h2>🌟 Mensagem Especial 🌟</h2>
+    <p id="msg-text"></p>
   </div>
 
   <script>
-    const gift = document.getElementById("gift");
-    const message = document.getElementById("message");
+    const gifts = document.querySelectorAll(".gift-box");
+    const messageBox = document.getElementById("message");
+    const msgText = document.getElementById("msg-text");
 
-    gift.addEventListener("click", () => {
-      gift.style.display = "none";
-      message.style.display = "block";
+    gifts.forEach(gift => {
+      gift.addEventListener("click", () => {
+        const text = gift.getAttribute("data-message");
+        msgText.innerHTML = text;
+        messageBox.style.display = "block";
 
-      // soltar confetes várias vezes
-      for (let i = 0; i < 3; i++) {
-        setTimeout(() => {
-          confetti({
-            particleCount: 200,
-            spread: 120,
-            origin: { y: 0.6 }
-          });
-        }, i * 1000);
-      }
+        // soltar confetes várias vezes
+        for (let i = 0; i < 3; i++) {
+          setTimeout(() => {
+            confetti({
+              particleCount: 200,
+              spread: 120,
+              origin: { y: 0.6 }
+            });
+          }, i * 800);
+        }
+      });
     });
   </script>
 </body>
